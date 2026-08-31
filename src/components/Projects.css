@@ -1,0 +1,243 @@
+.projects {
+  position: relative;
+  background: var(--bg-color);
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+/* =========================
+   PROJECT ROW (CASE STUDY)
+========================= */
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+
+/* Alternate rows */
+.project-row:nth-child(even) {
+  grid-template-columns: 1fr 1.2fr;
+}
+.project-row:nth-child(even) .project-visual {
+  order: 2;
+}
+.project-row:nth-child(even) .project-info {
+  order: 1;
+}
+
+/* =========================
+   PROJECT VISUAL
+========================= */
+
+.project-visual {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  aspect-ratio: 16/10;
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03), var(--bg-surface));
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.project-row:hover .project-image-placeholder {
+  transform: scale(1.03);
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-row:hover .project-image {
+  transform: scale(1.03);
+}
+
+.project-row:hover .image-overlay {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  z-index: 1;
+}
+
+/* =========================
+   PROJECT INFO
+========================= */
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-year {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tech-item {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.project-row:hover .project-title {
+  transform: translateX(10px);
+}
+
+.project-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.project-link-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition-fast);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.project-row:hover .project-link-primary {
+  border-bottom-color: var(--text-main);
+}
+
+.project-row:hover .arrow-icon {
+  transform: translateX(5px) rotate(-45deg);
+}
+
+.project-link-icon {
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.project-link-icon:hover {
+  color: var(--text-main);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+  .projects-container {
+    gap: 6rem;
+  }
+  
+  .project-row,
+  .project-row:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .project-row:nth-child(even) .project-visual {
+    order: 1;
+  }
+  
+  .project-row:nth-child(even) .project-info {
+    order: 2;
+  }
+  
+  .project-row:hover .project-title {
+    transform: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-title {
+    font-size: 1.8rem;
+  }
+  
+  .placeholder-text {
+    font-size: 1.5rem;
+  }
+}

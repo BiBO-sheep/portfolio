@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Editorial Color Palette */
+  --bg-color: #030303; /* Near black */
+  --bg-surface: #0a0a0a;
+  --bg-surface-hover: #111111;
+  
+  --primary-color: #00d2ff; /* Used strictly for accents */
+  --primary-glow: rgba(0, 210, 255, 0.15); /* Significantly reduced glow */
+  --secondary-color: #7b42f6;
+  --secondary-glow: rgba(123, 66, 246, 0.15);
+  
+  --text-main: #f5f5f5;
+  --text-muted: #888888;
+  --text-dark: #333333;
+  
+  /* Refined Borders & Structure */
+  --border-thin: 1px solid rgba(255, 255, 255, 0.05);
+  --border-hover: 1px solid rgba(255, 255, 255, 0.12);
+  --glass-backdrop: blur(8px);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  
+  /* Timing */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Global Section Spacing */
+section {
+  padding: 120px 5%;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 
+  Editorial Section Heading System
+  Example:
+  <div className="section-header-editorial">
+    <span className="section-number">01 //</span>
+    <h2 className="section-title">ABOUT ME</h2>
+  </div>
+*/
+.section-header-editorial {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+  border-bottom: var(--border-thin);
+  padding-bottom: 2rem;
+}
+
+.section-number {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}

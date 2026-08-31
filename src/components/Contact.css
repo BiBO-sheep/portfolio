@@ -1,0 +1,228 @@
+.contact {
+  position: relative;
+  background: var(--bg-color);
+  padding-bottom: 120px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+}
+
+/* =========================
+   CONTACT INFO
+========================= */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info h3 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.contact-desc {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 3.5rem;
+  max-width: 90%;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.contact-icon {
+  font-size: 1.2rem;
+  color: var(--text-main);
+  opacity: 0.5;
+  margin-top: 0.2rem;
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-value {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.social-links-editorial {
+  display: flex;
+  gap: 2rem;
+}
+
+.social-links-editorial a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.social-links-editorial a:hover {
+  color: var(--text-main);
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-form-editorial {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 0.5rem;
+}
+
+.form-group-editorial {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.form-group-editorial label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transition-fast);
+  pointer-events: none;
+  margin-bottom: 0.5rem;
+}
+
+.form-group-editorial input,
+.form-group-editorial textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 0;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1.1rem;
+  transition: var(--transition-fast);
+}
+
+.form-group-editorial input::placeholder,
+.form-group-editorial textarea::placeholder {
+  color: transparent; /* Hide placeholder, let label act as placeholder */
+}
+
+/* Float label effect if input is focused or has value */
+.form-group-editorial input:focus + label,
+.form-group-editorial textarea:focus + label,
+.form-group-editorial input:not(:placeholder-shown) + label,
+.form-group-editorial textarea:not(:placeholder-shown) + label {
+  color: var(--text-main);
+}
+
+.form-group-editorial input:focus,
+.form-group-editorial textarea:focus {
+  outline: none;
+  border-bottom-color: var(--text-main);
+}
+
+.form-group-editorial textarea {
+  resize: vertical;
+  min-height: 40px;
+}
+
+.btn-submit-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  align-self: flex-start;
+  padding: 0.8rem 0;
+  background: transparent;
+  color: var(--text-main);
+  border: none;
+  border-bottom: 1px solid var(--text-main);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  margin-top: 1rem;
+}
+
+.btn-submit-editorial:hover {
+  padding-right: 1rem;
+}
+
+.submit-icon {
+  transition: transform 0.3s ease;
+}
+
+.btn-submit-editorial:hover .submit-icon {
+  transform: translateX(4px) rotate(-45deg);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+}
+
+/* =========================
+   FORM STATUS
+========================= */
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  animation: fadeIn var(--transition-fast);
+}
+
+.form-status.success {
+  background: rgba(0, 255, 128, 0.1);
+  color: #00ff80;
+  border: 1px solid rgba(0, 255, 128, 0.2);
+}
+
+.form-status.error {
+  background: rgba(255, 64, 64, 0.1);
+  color: #ff4040;
+  border: 1px solid rgba(255, 64, 64, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

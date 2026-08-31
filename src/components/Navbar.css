@@ -1,0 +1,95 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: var(--transition-smooth);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(5, 5, 5, 0.75);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border-bottom: var(--border-thin);
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 1px;
+}
+
+.logo .dot {
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--text-main);
+}
+
+.nav-links a:not(.nav-contact-btn)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: var(--transition-fast);
+  border-radius: 2px;
+}
+
+.nav-links a:not(.nav-contact-btn):hover::after {
+  width: 100%;
+  box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.nav-contact-btn {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--radius-sm);
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  background: rgba(0, 210, 255, 0.05);
+}
+
+.nav-contact-btn:hover {
+  background: rgba(0, 210, 255, 0.1);
+  box-shadow: 0 0 15px var(--primary-glow);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness (Basic for now) */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Can implement a hamburger menu later if needed */
+  }
+}

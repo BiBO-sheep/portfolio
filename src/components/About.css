@@ -1,0 +1,373 @@
+.about {
+  position: relative;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  margin: 0 auto;
+}
+
+/* =========================
+   ORBIT SYSTEM & IMAGE
+========================= */
+
+.about-visual-area {
+  flex: 0 0 450px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit-system-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Photo Centerpiece */
+.about-image-container {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  z-index: 10;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.about-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  overflow: visible; 
+  transform-style: preserve-3d;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  filter: grayscale(20%) contrast(1.1);
+  transition: filter var(--transition-smooth);
+}
+
+.orbit-system-wrapper:hover .about-image img {
+  filter: grayscale(0%) contrast(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 5, 5, 0.8) 0%, transparent 50%);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  border: var(--border-thin);
+}
+
+.about-image-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at center, var(--primary-glow) 0%, transparent 70%);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Orbits */
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+.orbit-outer {
+  width: 100%;
+  height: 100%;
+  border-color: rgba(0, 255, 255, 0.05);
+  animation: spin 45s linear infinite;
+  z-index: 1;
+}
+
+.orbit-middle {
+  width: 75%;
+  height: 75%;
+  border-color: rgba(0, 255, 255, 0.1);
+  animation: spin-reverse 35s linear infinite;
+  z-index: 2;
+}
+
+.orbit-inner {
+  width: 55%;
+  height: 55%;
+  border-style: solid;
+  border-color: rgba(0, 255, 255, 0.15);
+  animation: spin 25s linear infinite;
+  z-index: 3;
+}
+
+/* Orbit Items */
+.orbit-item {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--angle));
+  pointer-events: none;
+}
+
+/* Tech Nodes */
+.tech-node {
+  position: absolute;
+  top: -20px;
+  left: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  background: rgba(10, 15, 30, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+
+.orbit-outer .tech-node { animation: counter-spin 45s linear infinite; }
+.orbit-middle .tech-node { animation: counter-spin-reverse 35s linear infinite; }
+.orbit-inner .tech-node { animation: counter-spin 25s linear infinite; }
+
+.tech-node:hover {
+  transform: rotate(calc(-1 * var(--angle))) scale(1.2) !important;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+  border-color: rgba(0, 255, 255, 0.6);
+  z-index: 20;
+}
+
+.tech-node:hover ~ * {
+  /* Pause orbit animation when hovering if we want, but instruction says "orbit tetap berjalan" */
+}
+
+/* Tooltips */
+.tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(5, 5, 10, 0.95);
+  color: #a0aec0;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.tech-node:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Decorative Elements */
+.decorative {
+  position: absolute;
+  top: -10px;
+  left: calc(50% - 15px);
+  width: 30px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: rgba(0, 255, 255, 0.4);
+  font-weight: bold;
+}
+
+.orbit-outer .decorative { animation: counter-spin 45s linear infinite; }
+.orbit-middle .decorative { animation: counter-spin-reverse 35s linear infinite; }
+.orbit-inner .decorative { animation: counter-spin 25s linear infinite; }
+
+/* Moving Lights */
+.moving-light {
+  position: absolute;
+  top: -3px;
+  left: calc(50% - 3px);
+  width: 6px;
+  height: 6px;
+  background: #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(0, 255, 255, 0.8);
+  /* The moving light just rotates with the orbit, no counter-spin needed! */
+}
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes counter-spin {
+  from { transform: rotate(calc(-1 * var(--angle))) rotate(0deg); }
+  to { transform: rotate(calc(-1 * var(--angle))) rotate(-360deg); }
+}
+
+@keyframes counter-spin-reverse {
+  from { transform: rotate(calc(-1 * var(--angle))) rotate(0deg); }
+  to { transform: rotate(calc(-1 * var(--angle))) rotate(360deg); }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .orbit-outer, .orbit-middle, .orbit-inner,
+  .orbit-outer .tech-node, .orbit-middle .tech-node, .orbit-inner .tech-node,
+  .orbit-outer .decorative, .orbit-middle .decorative, .orbit-inner .decorative {
+    animation-play-state: paused;
+  }
+}
+
+/* =========================
+   ABOUT TEXT & TRAITS
+========================= */
+
+.about-text {
+  flex: 1;
+}
+
+.about-greeting {
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.about-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 3.5rem;
+  line-height: 1.8;
+  max-width: 90%;
+}
+
+.about-traits {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.trait-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: var(--border-thin);
+}
+
+.trait-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.trait-icon {
+  flex: 0 0 auto;
+  color: var(--text-main);
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+  opacity: 0.5;
+  transition: var(--transition-fast);
+}
+
+.trait-item:hover .trait-icon {
+  opacity: 1;
+  color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+.trait-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.trait-content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .about-visual-area {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+
+  .about-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-greeting {
+    font-size: 1.8rem;
+  }
+  
+  .about-visual-area {
+    max-width: 350px;
+  }
+  
+  .orbit-outer {
+    display: none; /* Simplify on very small screens */
+  }
+  
+  .tech-node {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    top: -16px;
+    left: calc(50% - 16px);
+  }
+  
+  .decorative {
+    display: none;
+  }
+}

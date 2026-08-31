@@ -1,0 +1,138 @@
+.skills {
+  position: relative;
+}
+
+/* =========================
+   TOOLKIT BENTO GRID
+========================= */
+
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  max-width: 1200px;
+}
+
+/* Asymmetrical layout: first item takes full width of a row if odd, 
+   but let's do a masonry-like or specific spanning */
+.section-0 {
+  grid-column: 1 / -1; /* First item full width */
+}
+
+.section-1 {
+  grid-column: 1 / 2;
+}
+
+.section-2 {
+  grid-column: 2 / 3;
+}
+
+.toolkit-section {
+  background: var(--bg-surface);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  transition: var(--transition-smooth);
+}
+
+.toolkit-section:hover {
+  border: var(--border-hover);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.toolkit-header h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.toolkit-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   TOOLKIT ITEMS
+========================= */
+
+.toolkit-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.toolkit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.7;
+  transition: var(--transition-fast);
+  cursor: default;
+}
+
+.toolkit-item:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.toolkit-icon-wrapper {
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+}
+
+.toolkit-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+/* Hover colors specific to items instead of classes */
+.toolkit-item:hover .skill-icon {
+  color: var(--primary-color);
+  filter: drop-shadow(0 0 12px var(--primary-glow));
+}
+
+.skill-icon {
+  transition: var(--transition-smooth);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+  .toolkit-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-1, .section-2 {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .toolkit-section {
+    padding: 2rem;
+  }
+  
+  .toolkit-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .toolkit-icon-wrapper {
+    font-size: 2.5rem;
+  }
+}
