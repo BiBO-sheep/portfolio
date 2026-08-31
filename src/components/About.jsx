@@ -89,7 +89,7 @@ function About() {
                 <div className="orbit-item" style={{ '--angle': '240deg' }}>
                   <div className="tech-node"><SiGit /><span className="tooltip">Git</span></div>
                 </div>
-                <div className="orbit-item decorative" style={{ '--angle': '60deg' }}>{`</>`}</div>
+                <div className="orbit-item decorative" style={{ '--angle': '60deg' }} aria-hidden="true">{`</>`}</div>
                 <div className="moving-light"></div>
               </div>
 
@@ -104,8 +104,8 @@ function About() {
                 <div className="orbit-item" style={{ '--angle': '285deg' }}>
                   <div className="tech-node"><SiTailwindcss /><span className="tooltip">Tailwind</span></div>
                 </div>
-                <div className="orbit-item decorative" style={{ '--angle': '100deg' }}>{`{ }`}</div>
-                <div className="orbit-item decorative" style={{ '--angle': '220deg' }}>{`01`}</div>
+                <div className="orbit-item decorative" style={{ '--angle': '100deg' }} aria-hidden="true">{`{ }`}</div>
+                <div className="orbit-item decorative" style={{ '--angle': '220deg' }} aria-hidden="true">{`01`}</div>
                 <div className="moving-light"></div>
               </div>
 
@@ -133,7 +133,7 @@ function About() {
                 }}
               >
                 <div className="about-image">
-                  <img src={aboutImage} alt="Muh Iqbal" style={{ transform: "translateZ(30px)" }} />
+                  <img src={aboutImage} alt="Muhammad Iqbal Fadila - Profile" style={{ transform: "translateZ(30px)" }} loading="lazy" />
                   <div className="image-overlay" style={{ transform: "translateZ(40px)" }}></div>
                   <div className="about-image-glow" style={{ transform: "translateZ(-20px)" }}></div>
                 </div>

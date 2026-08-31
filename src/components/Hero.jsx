@@ -46,22 +46,24 @@ function Hero() {
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Orbital Ring Animation */}
-              <div className="orbital-ring orbital-ring-outer"></div>
-              <div className="orbital-ring orbital-ring-inner"></div>
+              <div className="orbital-ring orbital-ring-outer" aria-hidden="true"></div>
+              <div className="orbital-ring orbital-ring-inner" aria-hidden="true"></div>
               
               {/* Profile Photo */}
               <div className="hero-photo-wrapper">
-                <img src={profileImage} alt="Muh Iqbal" className="hero-image" />
+                <img src={profileImage} alt="Muhammad Iqbal Fadila - Software Engineering Student" className="hero-image" />
               </div>
               
               {/* Decorative Floating Elements */}
               <motion.div 
                 className="floating-element el-1"
+                aria-hidden="true"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               >+</motion.div>
               <motion.div 
                 className="floating-element el-2"
+                aria-hidden="true"
                 animate={{ y: [0, 15, 0] }}
                 transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
               >•</motion.div>

@@ -70,7 +70,7 @@ function Skills() {
               <div className="toolkit-items">
                 {section.skills.map((skill) => (
                   <div className="toolkit-item" key={skill.name}>
-                    <div className="toolkit-icon-wrapper">
+                    <div className="toolkit-icon-wrapper" aria-hidden="true">
                       {skill.icon}
                     </div>
                     <span className="toolkit-name">{skill.name}</span>

@@ -18,7 +18,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} aria-label="Main Navigation">
       <div className="nav-container">
         <a href="#home" className="logo">
           Portofolio<span className="dot">.</span>

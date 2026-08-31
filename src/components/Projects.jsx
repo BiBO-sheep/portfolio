@@ -72,7 +72,7 @@ function Projects() {
               <div className="project-visual">
                 {project.image ? (
                   <div className="project-image-wrapper">
-                    <img src={project.image} alt={project.title} className="project-image" />
+                    <img src={project.image} alt={`Screenshot of ${project.title} project`} className="project-image" loading="lazy" />
                     <div className="image-overlay"></div>
                   </div>
                 ) : (

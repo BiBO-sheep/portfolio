@@ -106,7 +106,7 @@ function Certificates() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: (index % 2) * 0.1 }}
             >
               <div className="cert-image-container">
-                <img src={cert.image} alt={cert.title} className="cert-image" loading="lazy" />
+                <img src={cert.image} alt={`Certificate of completion for ${cert.title}`} className="cert-image" loading="lazy" />
               </div>
               
               <div className="cert-info">
